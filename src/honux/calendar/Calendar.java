@@ -13,19 +13,29 @@ public class Calendar {
 	public static void main(String[] args) {
 	Scanner scanner = new Scanner(System.in);
 	Calendar cal = new Calendar();
-	
-	System.out.println("반복횟수를 입력하시오.");
-	int repeat = scanner.nextInt();
-	
-	System.out.println("원하는 달을 입력하세요.");
-	for( int i= 0; i < repeat;i++) {
-		int month = scanner.nextInt();
-		System.out.printf("%d달은  %d일 입니다.%n",month,cal.maxDaysOfM(month));
-	}
-	System.out.println("시스템이 끝났습니다.");
-	scanner.close();
+	String prompt = "cal> ";
+		
+		while(true) {
+			System.out.println("원하는 달을 입력하시오.");
+			System.out.print(prompt);
+			int month = scanner.nextInt();
+			
+			if(1<=month && month <=12) {
+				System.out.printf("%n%d월달은  %d일 입니다.%n",month,cal.maxDaysOfM(month));
+			}else if(month>12) {
+				System.out.println("그런 달은 없습니다.");
+				System.out.println();
+				continue;
+			}else if(month == -1){
+				System.out.println("프로그램이 끝났습니다");
+				break;
+			}
+		}
+					
+					
 	}
 }
+
 /*  내가 한거
 Scanner scan= new Scanner(System.in);
 
